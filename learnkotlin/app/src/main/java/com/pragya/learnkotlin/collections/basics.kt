@@ -1,5 +1,6 @@
 package com.pragya.learnkotlin.collections
-import java.util.LinkedList
+import java.util.*
+import java.util.Map
 
 private fun demo1(){
     val list = LinkedList<String>()
@@ -75,6 +76,57 @@ private fun demo4() {
     println(sqd)
 }
 
-fun main() {
-    demo1()
+private fun demo5() {
+
+    fun myFn(n : Int) : Unit {
+
+    }
+    val list = listOfNotNull(1, 89, 56, 42, 6, 78, 96, 10)
+    list.forEach(::println) // method reference
+    list.forEach(::myFn) // method reference
+    list.forEach({ el -> print(el) }) // lambda
+    list.forEach{ print(it) } // lambda
+    list.forEach(fun(n : Int){ // anonymous
+    print(n)
+    })
+}
+
+private fun demo6() {
+    val set = setOf<String?>("abc", null, "zxv", "pqr", "hij" ,"abc", "lmn")
+    set.forEach(::println) // no duplicates it considers
+
+    println("---------------------")
+    val set1 = setOf<String?>("abc","zxv", "pqr", "hij" ,"abc", "lmn") // remove null
+    val arr = set1.toTypedArray()
+    val sortedSet = TreeSet<String>(set1) // i will work with data and sort it but I dont need null
+    sortedSet.forEach(::println)
+
+    println("---------------------")
+    println(arr.contentToString())
+    Arrays.sort(arr)
+    println(arr.contentToString())
+}
+
+private fun demo7() {
+    val kvDs = HashMap<Int,String>()
+    kvDs.put(1,"abc") // java way
+    kvDs[2] = "pwr" //kotlin way
+    kvDs[3] = "lmn"
+    kvDs[4] = "xyz"
+    kvDs[5] = "def"
+    kvDs[6] = "hij"
+    kvDs[7] = "hij"
+
+    kvDs.entries.forEach{
+        entry -> println("Key - ${entry.key} Value- ${entry.value}")
+    }
+    kvDs.entries.forEach(::println)
+
+    for ( (k,v) in kvDs ) {
+        println("Key - $k Value - $v")
+    }
+}
+
+fun main(){
+    demo7()
 }
