@@ -12,6 +12,11 @@ private class Person(
     fun celebrateBirthday() {
         age++
     }
+//    this override is required, because otherwise demo3 println will not work.
+//
+    override fun toString(): String {
+        return "name = $name, age = $age, city = $city"
+    }
 }
 
 fun demo1() {
@@ -44,6 +49,8 @@ fun demo1() {
             println(it.uppercase())
         }
     }
+
+
 }
 private fun demo2(){
 //    context object is passes as argument
@@ -58,6 +65,19 @@ private fun demo2(){
     }
 
 }
+
+private fun demo3() {
+
+    // The context object is available as a receiver (this). The return value is the object itself.
+    val pr = Person("abc", 78, "uuu").apply {
+        age = 20
+        city = "bnn"
+
+        // some operation that will change the sate
+    }
+    println(pr)
+}
+
 
 fun main() {
 demo2()
