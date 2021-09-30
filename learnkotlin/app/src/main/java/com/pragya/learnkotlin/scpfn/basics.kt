@@ -1,9 +1,9 @@
 package com.pragya.learnkotlin.scpfn
 
 private class Person(
-    private val name: String,
-    private var age: Int,
-    private var city: String
+     val name: String,
+     var age: Int,
+     var city: String
 ) {
     fun moveTo(newCity : String) {
         this.city = newCity
@@ -45,8 +45,21 @@ fun demo1() {
         }
     }
 }
+private fun demo2(){
+//    context object is passes as argument
+//    but inside lambda available as receiver (this)
+//    return value is the lambda result
+    val p =Person("abc",12,"nnn")
+    with(p){
+        age = 13
+        city = "jjj"
+        this.celebrateBirthday()
+        this.moveTo("newplace")
+    }
+
+}
 
 fun main() {
-demo1()
+demo2()
 
 }
