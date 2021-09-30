@@ -35,9 +35,18 @@ fun demo1() {
         it.moveTo("kkk")
         it.celebrateBirthday()
     }
+
+    val list = listOf<String?>("abc", "pqr", "lmn", null, "ghh", "nnm")
+    list.forEach { el ->
+//        using null safety operator ?,
+//        if el is not null, go into the .let{} block
+        el?.let {
+            println(it.uppercase())
+        }
+    }
 }
 
 fun main() {
-
+demo1()
 
 }
