@@ -1,5 +1,14 @@
 package com.pragya.learnkotlin.Questionset1
 
+import java.util.*
+
+
+//private fun demo(){
+//Date().also { dt = it }(
+//        println("${dt}")
+//            )
+//
+//}
 
 fun main()
 {
@@ -16,11 +25,11 @@ fun main()
     }
     q3("kotlin",multiply)
 //    question 4 - Declare a function which returns another function which returns current date
-//    fun dt(){
-//        return
+
+//
 //    }
 
-    //fun q4(){
+//        fun q4(){
 //        val currentDateTime = LocalDateTime.now()
 //        print("$currentDateTime")
 
