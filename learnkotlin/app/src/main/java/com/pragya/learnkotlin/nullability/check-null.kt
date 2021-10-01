@@ -6,7 +6,7 @@ private fun demo1() {
     var dt: Date? = null // it can be null or non null
 
     if(System.currentTimeMillis() > 5988) { // random condition
-        dt = Date()
+        dt=Date()
     }
 
     // you null pointer error
