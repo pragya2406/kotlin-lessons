@@ -1,5 +1,6 @@
 package com.pragya.learnkotlin.asyncprog
 
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
@@ -58,11 +59,47 @@ private suspend fun demoCode() {
         println("  $i")
     }
 }
+private fun demo4() {
+    runBlocking {
+        demoCoScp()
+    }
+}
+
+private suspend fun demoCoScp() {
+    coroutineScope {
+        println("one")
+        println("two")
+        launch {
+            println("three")
+            println("four")
+        }
+        println("five")
+        println("six")
+    }
+}
+
+private fun job1(){
+    runBlocking {
+        val job = launch {
+            delay(1500)
+            println("world")
+        }
+            println("hello")
+            job.join() //until job is complete wait here
+            println("job complete")
+    }
+}
 
 fun main() {
-    //demo1()
-//    demo2()
-    demo3()
+    //demo3()
+    job1()
+
+//    val t1 = Thread {
+//
+//    }
+//    t1.start()
+//    t1.suspend()
+//    t1.state
 }
 
 
